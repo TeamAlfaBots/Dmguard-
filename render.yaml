@@ -1,0 +1,28 @@
+services:
+  - type: web
+    name: dm-guard-pyro
+    runtime: docker
+    plan: free
+    healthCheckPath: /ping
+    autoDeploy: true
+    envVars:
+      - key: API_ID
+        sync: false
+      - key: API_HASH
+        sync: false
+      # Multiple sessions comma se alag: sess1,sess2,sess3
+      - key: STRING_SESSIONS
+        sync: false
+      # Owner IDs (comma se alag): 123456,789012
+      - key: OWNER_IDS
+        sync: false
+      # Logger group ID, e.g. -1001234567890
+      - key: LOGGER_GROUP_ID
+        sync: false
+      # In IDs ko bot kabhi delete/block nahi karega
+      - key: WHITELIST_IDS
+        sync: false
+      - key: ALLOW_CONTACTS
+        value: "true"
+      - key: AUTO_ALLOW_OUTGOING
+        value: "true"
